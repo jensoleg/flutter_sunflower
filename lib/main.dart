@@ -29,11 +29,11 @@ class SunflowerState extends State<SunflowerDemo> {
       toolBar: new ToolBar(
         center: new Text("Flutter Sunflower"),
         right: [
-          // TODO: This not getting the right foreground color.
           new Slider(
             min: 0.0,
             value: _value,
             max: maxSliderValue,
+            activeColor: Theme.of(context).canvasColor,
             onChanged: (double value) {
               setState(() {
                 _value = value;
