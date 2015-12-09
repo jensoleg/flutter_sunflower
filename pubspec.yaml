@@ -1,0 +1,5 @@
+name: flutter_sunflower
+description: A minimal Flutter project.
+dependencies:
+  flutter:
+    path: ../../projects/flutter/flutter/packages/flutter
