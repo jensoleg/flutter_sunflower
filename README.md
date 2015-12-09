@@ -1,6 +1,6 @@
 # flutter_sunflower
 
-A minimal Flutter project.
+The Sunflower example as a Flutter app.
 
 ## Getting Started
 

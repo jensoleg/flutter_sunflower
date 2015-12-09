@@ -1,5 +1,5 @@
 name: flutter_sunflower
-description: A minimal Flutter project.
+description: A Flutter version of Sunflower.
 dependencies:
   flutter:
     path: ../../projects/flutter/flutter/packages/flutter
