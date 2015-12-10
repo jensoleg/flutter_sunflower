@@ -4,6 +4,7 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 
 final double maxSliderValue = 1000.0;
+
 final double viewPadding = 16.0;
 
 void main() {
@@ -11,6 +12,11 @@ void main() {
     new MaterialApp(
       title: "Flutter Sunflower",
       routes: { '/': (RouteArguments args) => new SunflowerDemo() }
+      // theme: new ThemeData(
+      //   brightness: ThemeBrightness.light,
+      //   primarySwatch: Colors.blue,
+      //   accentColor: Colors.blueAccent[100]
+      // )
     )
   );
 }
@@ -28,7 +34,7 @@ class SunflowerState extends State<SunflowerDemo> {
     return new Scaffold(
       toolBar: new ToolBar(
         center: new Text("Flutter Sunflower"),
-        right: [
+        right: <Widget>[
           new Slider(
             min: 0.0,
             value: _value,
@@ -70,8 +76,6 @@ class SunflowerPainter extends CustomPainter {
   final double seeds;
 
   void paint(Canvas canvas, Size size) {
-    print('seed value = ${seeds}');
-
     double maxDimension = math.min(size.width, size.height);
     double scaleFactor = (maxDimension / 2.0) / math.sqrt(maxSliderValue);
     double seedRadius = scaleFactor * 0.6;
@@ -87,6 +91,7 @@ class SunflowerPainter extends CustomPainter {
     for (int i = 0; i < seeds; i++) {
       double theta = i * tauPhiRatio;
       double r = math.sqrt(i) * scaleFactor;
+
       canvas.drawCircle(new Point(
         xCenter + r * math.cos(theta),
         yCenter - r * math.sin(theta)
