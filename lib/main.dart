@@ -5,18 +5,16 @@ import 'package:flutter/material.dart';
 
 final double maxSliderValue = 1000.0;
 
+// TODO: I would like to be able to reference a material constant for this.
 final double viewPadding = 16.0;
 
 void main() {
   runApp(
     new MaterialApp(
       title: "Flutter Sunflower",
-      routes: { '/': (RouteArguments args) => new SunflowerDemo() }
-      // theme: new ThemeData(
-      //   brightness: ThemeBrightness.light,
-      //   primarySwatch: Colors.blue,
-      //   accentColor: Colors.blueAccent[100]
-      // )
+      routes: {
+        Navigator.defaultRouteName: (_) => new SunflowerDemo()
+      }
     )
   );
 }
@@ -26,13 +24,12 @@ class SunflowerDemo extends StatefulComponent {
 }
 
 class SunflowerState extends State<SunflowerDemo> {
-  static const Color orange = const Color(0xFFFFA500);
-
-  double _value = 500.0;
+  double _value = maxSliderValue * 2 / 3;
 
   Widget build(BuildContext context) {
     return new Scaffold(
       toolBar: new ToolBar(
+        // TODO: On small screens this overflows. How to specify to use ellipsis?
         center: new Text("Flutter Sunflower"),
         right: <Widget>[
           new Slider(
@@ -48,29 +45,26 @@ class SunflowerState extends State<SunflowerDemo> {
           )
         ]
       ),
-      body: new Material(
-        child: new Padding(
-          child: new CustomPaint(
-            painter: new SunflowerPainter(
-              color: orange,
-              seeds: _value
-            )
-          ),
-          padding: new EdgeDims.all(viewPadding)
-        )
+      body: new Padding(
+        child: new CustomPaint(
+          painter: new SunflowerPainter(
+            color: Colors.orange[500],
+            seeds: _value
+          )
+        ),
+        padding: new EdgeDims.all(viewPadding)
       )
     );
   }
 }
 
 class SunflowerPainter extends CustomPainter {
+  static final double phi = (math.sqrt(5) + 1) / 2;
+
   SunflowerPainter({
     this.color,
     this.seeds
   });
-
-  static const double tau = math.PI * 2;
-  static final double phi = (math.sqrt(5) + 1) / 2;
 
   final Color color;
   final double seeds;
@@ -82,7 +76,7 @@ class SunflowerPainter extends CustomPainter {
 
     double xCenter = size.width / 2;
     double yCenter = size.height / 2;
-    double tauPhiRatio = tau / phi;
+    double tauPhiRatio = (math.PI * 2) / phi;
 
     Paint paint = new Paint()
       ..color = color
