@@ -5,9 +5,6 @@ import 'package:flutter/material.dart';
 
 final double maxSliderValue = 1000.0;
 
-// TODO: I would like to be able to reference a material constant for this.
-final double viewPadding = 16.0;
-
 void main() {
   runApp(
     new MaterialApp(
@@ -45,14 +42,14 @@ class SunflowerState extends State<SunflowerDemo> {
           )
         ]
       ),
-      body: new Padding(
+      body: new Container(
         child: new CustomPaint(
           painter: new SunflowerPainter(
             color: Colors.orange[500],
             seeds: _value
           )
         ),
-        padding: new EdgeDims.all(viewPadding)
+        padding: const EdgeDims.all(16.0)
       )
     );
   }

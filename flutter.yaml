@@ -1,3 +1,8 @@
 name: flutter_sunflower
 material-design-icons:
   - name: content/add
+  - name: navigation/chevron_right
+  - name: navigation/expand_less
+  - name: navigation/expand_more
+  - name: navigation/menu
+  - name: navigation/more_vert

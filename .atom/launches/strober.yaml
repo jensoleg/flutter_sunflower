@@ -1,0 +1,7 @@
+# Flutter launch configuration for lib/strober.dart.
+type: flutter
+path: lib/strober.dart
+
+flutter:
+  checked: false
+  route:
