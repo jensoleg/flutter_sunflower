@@ -68,9 +68,10 @@ class StroberState extends State<StroberDemo> {
         ),
         padding: const EdgeDims.all(16.0)
       ),
-      // TODO: This complains about not being in a material context?
-      floatingActionButton: new Chip(
-        label: new Text('${fpsCounter.fps.round()}')
+      floatingActionButton: new Material(
+        child: new Chip(
+          label: new Text('${fpsCounter.fps.round()}')
+        )
       )
     );
   }
@@ -145,7 +146,7 @@ class StroberPainter extends CustomPainter {
 }
 
 class FpsCounter {
-  static final maxSamples = 120;
+  static final maxSamples = 180;
 
   List<int> samples = [];
 

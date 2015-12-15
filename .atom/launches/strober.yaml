@@ -3,5 +3,6 @@ type: flutter
 path: lib/strober.dart
 
 flutter:
-  checked: false
+  checked: true
+  debug: true
   route:
