@@ -19,7 +19,7 @@ class DebuggerDemo extends StatefulComponent {
 class DebuggerState extends State<DebuggerDemo> {
   DebuggerState();
 
-  final TabBarSelection _selection = new TabBarSelection();
+  final TabBarSelection _selection = new TabBarSelection(maxIndex: 1);
 
   double listScrollPos = 0.0;
 
@@ -69,7 +69,7 @@ class DebuggerState extends State<DebuggerDemo> {
             return new Container(
               child: new ScrollableViewport(
                 child: new Text(
-                  createLoremIpsum(1),
+                  createLoremIpsum(4),
                   style: new TextStyle(fontFamily: 'monospace')
                 )
               ),
@@ -113,7 +113,9 @@ class DebuggerState extends State<DebuggerDemo> {
         ),
         new FloatingActionButton(
           child: new Icon(icon: 'navigation/chevron_right'),
-          onPressed: () => print('step over')
+          onPressed: () {
+            print('step over');
+          }
         )
       ],
       justifyContent: FlexJustifyContent.end
