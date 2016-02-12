@@ -3,9 +3,7 @@
 .packages
 .pub/
 build/
+ios/Generated/Tools/
+lib/test.dart
 packages
 pubspec.lock
-lib/test.dart
-
-ios/Tools/
-
