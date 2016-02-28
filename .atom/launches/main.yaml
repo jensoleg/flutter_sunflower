@@ -6,3 +6,4 @@ flutter:
   checked: true
   debug: true
   route:
+  args: -v
