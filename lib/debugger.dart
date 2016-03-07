@@ -28,30 +28,7 @@ class DebuggerState extends State<DebuggerDemo> {
       toolBar: new ToolBar(
         center: new Text("main()"),
         right: <Widget>[
-          new IconButton(
-            icon: 'navigation/more_vert',
-            onPressed: () {
-              _toggleFPS();
-              // showMenu(
-              //   context: context,
-              //   // TODO: How to position this better?
-              //   position: new ModalPosition(
-              //     top: 48.0,
-              //     right: 0.0
-              //   ),
-              //   items: [
-              //     new PopupMenuItem(
-              //       child: new Text('Foo'),
-              //       value: 'Foo'
-              //     ),
-              //     new PopupMenuItem(
-              //       child: new Text('Bar'),
-              //       value: 'Bar'
-              //     )
-              //   ]
-              // );
-            }
-          )
+          new IconButton(icon: Icons.more_vert)
         ],
         tabBar: new TabBar(
           labels: [
@@ -99,20 +76,20 @@ class DebuggerState extends State<DebuggerDemo> {
       drawer: _buildDrawer(),
       floatingActionButton: new Row([
         new FloatingActionButton(
-          child: new Icon(icon: 'navigation/expand_more'),
+          child: new Icon(icon: Icons.expand_more),
           onPressed: () => print('step in'),
           mini: true
         ),
         new Padding(
           child: new FloatingActionButton(
-            child: new Icon(icon: 'navigation/expand_less'),
+            child: new Icon(icon: Icons.expand_less),
             onPressed: () => print('step out'),
             mini: true
           ),
           padding: new EdgeDims.symmetric(horizontal: 16.0)
         ),
         new FloatingActionButton(
-          child: new Icon(icon: 'navigation/chevron_right'),
+          child: new Icon(icon: Icons.chevron_right),
           onPressed: () {
             print('step over');
           }
@@ -138,23 +115,6 @@ class DebuggerState extends State<DebuggerDemo> {
     }
 
     return new Drawer(child: new Block(items));
-  }
-
-  OverlayEntry frameStats;
-
-  void _toggleFPS() {
-    OverlayState overlay = Overlay.of(context);
-    if (frameStats != null) {
-      frameStats.remove();
-      frameStats = null;
-    } else {
-      frameStats = new OverlayEntry(builder:_buildStatiticsOverlay);
-      overlay.insert(frameStats);
-    }
-  }
-
-  Widget _buildStatiticsOverlay(BuildContext context) {
-    return new StatisticsOverlay.allEnabled();
   }
 }
 
