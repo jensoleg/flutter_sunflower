@@ -6,4 +6,5 @@ flutter:
   checked: true
   debug: true
   route:
-  args: -v
+  # Additional args for the flutter run command:
+  args:
