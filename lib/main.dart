@@ -16,7 +16,7 @@ void main() {
   );
 }
 
-class SunflowerDemo extends StatefulComponent {
+class SunflowerDemo extends StatefulWidget {
   SunflowerState createState() => new SunflowerState();
 }
 
@@ -25,10 +25,10 @@ class SunflowerState extends State<SunflowerDemo> {
 
   Widget build(BuildContext context) {
     return new Scaffold(
-      toolBar: new ToolBar(
+      appBar: new AppBar(
         // TODO: On small screens this overflows. How to specify to use ellipsis?
-        center: new Text("Flutter Sunflower"),
-        right: <Widget>[
+        title: new Text("Flutter Sunflower"),
+        actions: <Widget>[
           new Slider(
             min: 0.0,
             value: _value,
@@ -50,7 +50,7 @@ class SunflowerState extends State<SunflowerDemo> {
             seeds: _value
           )
         ),
-        padding: const EdgeDims.all(16.0)
+        padding: const EdgeInsets.all(16.0)
       )
     );
   }
