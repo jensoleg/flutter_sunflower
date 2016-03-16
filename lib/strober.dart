@@ -17,7 +17,7 @@ void main() {
   );
 }
 
-class StroberDemo extends StatefulComponent {
+class StroberDemo extends StatefulWidget {
   StroberState createState() => new StroberState();
 }
 
@@ -38,9 +38,9 @@ class StroberState extends State<StroberDemo> {
     // print(fpsCounter.fps);
 
     return new Scaffold(
-      toolBar: new ToolBar(
-        center: new Text("Strober"),
-        right: <Widget>[
+      appBar: new AppBar(
+        title: new Text("Strober"),
+        actions: <Widget>[
           new Slider(
             min: 0.2,
             value: dialation,
@@ -66,7 +66,7 @@ class StroberState extends State<StroberDemo> {
             seeds: _seedValue()
           )
         ),
-        padding: const EdgeDims.all(16.0)
+        padding: const EdgeInsets.all(16.0)
       ),
       floatingActionButton: new Material(
         child: new Chip(

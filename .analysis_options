@@ -1,3 +1,5 @@
 analyzer:
   exclude:
     - 'ios/Generated/**'
+    - 'lib/debugger.dart'
+    - 'lib/test.dart'

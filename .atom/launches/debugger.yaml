@@ -1,7 +1,0 @@
-# Flutter launch configuration for lib/debugger.dart.
-type: flutter
-path: lib/debugger.dart
-
-flutter:
-  debug: true
-  route:
