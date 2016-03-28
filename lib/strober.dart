@@ -18,6 +18,7 @@ void main() {
 }
 
 class StroberDemo extends StatefulWidget {
+  @override
   StroberState createState() => new StroberState();
 }
 
@@ -32,6 +33,7 @@ class StroberState extends State<StroberDemo> {
   FpsCounter fpsCounter = new FpsCounter();
   Timer _timer;
 
+  @override
   Widget build(BuildContext context) {
     fpsCounter.tick();
 
@@ -116,6 +118,7 @@ class StroberPainter extends CustomPainter {
   final Color color;
   final double seeds;
 
+  @override
   void paint(Canvas canvas, Size size) {
     double maxDimension = math.min(size.width, size.height);
     double scaleFactor = (maxDimension / 2.0) / math.sqrt(maxSliderValue);
@@ -140,6 +143,7 @@ class StroberPainter extends CustomPainter {
     }
   }
 
+  @override
   bool shouldRepaint(StroberPainter oldPainter) {
     return oldPainter.color != color || oldPainter.seeds != seeds;
   }

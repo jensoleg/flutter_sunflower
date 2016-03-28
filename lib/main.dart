@@ -17,18 +17,20 @@ void main() {
 }
 
 class SunflowerDemo extends StatefulWidget {
+  @override
   SunflowerState createState() => new SunflowerState();
 }
 
 class SunflowerState extends State<SunflowerDemo> {
   double _value = maxSliderValue * 2 / 3;
 
+  @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        // TODO: On small screens this overflows. How to specify to use ellipsis?
         title: new Text("Flutter Sunflower"),
         actions: <Widget>[
+          new Icon(icon: Icons.menu),
           new Slider(
             min: 0.0,
             value: _value,
@@ -67,6 +69,7 @@ class SunflowerPainter extends CustomPainter {
   final Color color;
   final double seeds;
 
+  @override
   void paint(Canvas canvas, Size size) {
     double maxDimension = math.min(size.width, size.height);
     double scaleFactor = (maxDimension / 2.0) / math.sqrt(maxSliderValue);
@@ -91,6 +94,7 @@ class SunflowerPainter extends CustomPainter {
     }
   }
 
+  @override
   bool shouldRepaint(SunflowerPainter oldPainter) {
     return oldPainter.color != color || oldPainter.seeds != seeds;
   }
