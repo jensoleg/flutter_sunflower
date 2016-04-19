@@ -150,7 +150,7 @@ class StroberPainter extends CustomPainter {
 }
 
 class FpsCounter {
-  static final maxSamples = 180;
+  static final int maxSamples = 180;
 
   List<int> samples = [];
 
