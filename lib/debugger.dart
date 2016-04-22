@@ -23,6 +23,7 @@ class DebuggerState extends State<DebuggerDemo> {
 
   double listScrollPos = 0.0;
 
+  @override
   Widget build(BuildContext context) {
     return new Scaffold(
       toolBar: new ToolBar(
@@ -127,5 +128,5 @@ final String loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing "
     "mollit anim id est laborum.";
 
 String createLoremIpsum(int paragraphs) {
-  return new List.filled(paragraphs, loremIpsum).join('\n\n');
+  return new List<String>.filled(paragraphs, loremIpsum).join('\n\n');
 }
