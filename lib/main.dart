@@ -30,7 +30,7 @@ class SunflowerState extends State<SunflowerDemo> {
       appBar: new AppBar(
         title: new Text("Flutter Sunflower"),
         actions: <Widget>[
-          new Icon(icon: Icons.menu),
+          new Icon(Icons.menu),
           new Slider(
             min: 0.0,
             value: _value,

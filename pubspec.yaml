@@ -2,4 +2,4 @@ name: flutter_sunflower
 description: A Flutter version of Sunflower.
 dependencies:
   flutter:
-    path: ../../projects/flutter/flutter/packages/flutter
+    sdk: flutter
