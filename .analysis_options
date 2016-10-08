@@ -1,5 +1,4 @@
 analyzer:
+  strong-mode: true
   exclude:
-    - 'ios/Generated/**'
     - 'lib/debugger.dart'
-    - 'lib/test.dart'
