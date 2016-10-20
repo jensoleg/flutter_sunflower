@@ -28,7 +28,7 @@ class SunflowerState extends State<SunflowerDemo> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Sunflower"),
+        title: new Text("Flutter Sunflower"),
         actions: <Widget>[
           new Slider(
             min: 0.0,
