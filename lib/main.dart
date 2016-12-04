@@ -6,14 +6,9 @@ import 'package:flutter/material.dart';
 final double maxSliderValue = 1000.0;
 
 void main() {
-  runApp(
-    new MaterialApp(
+  runApp(new MaterialApp(
       title: "Flutter Sunflower",
-      routes: {
-        Navigator.defaultRouteName: (_) => new SunflowerDemo()
-      }
-    )
-  );
+      routes: {Navigator.defaultRouteName: (_) => new SunflowerDemo()}));
 }
 
 class SunflowerDemo extends StatefulWidget {
@@ -28,7 +23,7 @@ class SunflowerState extends State<SunflowerDemo> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Flutter Sunflower"),
+        title: new Text("Sunflower"),
         actions: <Widget>[
           new Slider(
             min: 0.0,
@@ -40,19 +35,20 @@ class SunflowerState extends State<SunflowerDemo> {
                 print('value: ${value.toStringAsFixed(2)}');
                 _value = value;
               });
-            }
+            },
           )
-        ]
+        ],
       ),
       body: new Container(
         child: new CustomPaint(
           painter: new SunflowerPainter(
             color: Colors.orange[500],
-            seeds: _value
-          )
+            seeds: _value,
+          ),
         ),
-        padding: const EdgeInsets.all(16.0)
-      )
+        constraints: new BoxConstraints.expand(),
+        padding: const EdgeInsets.all(16.0),
+      ),
     );
   }
 }
@@ -60,10 +56,7 @@ class SunflowerState extends State<SunflowerDemo> {
 class SunflowerPainter extends CustomPainter {
   static final double phi = (math.sqrt(5) + 1) / 2;
 
-  SunflowerPainter({
-    this.color,
-    this.seeds
-  });
+  SunflowerPainter({this.color, this.seeds});
 
   final Color color;
   final double seeds;
@@ -86,10 +79,11 @@ class SunflowerPainter extends CustomPainter {
       double theta = i * tauPhiRatio;
       double r = math.sqrt(i) * scaleFactor;
 
-      canvas.drawCircle(new Point(
-        xCenter + r * math.cos(theta),
-        yCenter - r * math.sin(theta)
-      ), seedRadius, paint);
+      canvas.drawCircle(
+          new Point(
+              xCenter + r * math.cos(theta), yCenter - r * math.sin(theta)),
+          seedRadius,
+          paint);
     }
   }
 
